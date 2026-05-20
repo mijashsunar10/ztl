@@ -1,0 +1,762 @@
+
+
+
+
+/* ==========================================================
+	SPLITGRID TOKENS (DARK) – PROFILBASERAT
+========================================================== */
+
+:root {
+    /* Brand palette */
+    --sg-black: #0E0E10;
+    --sg-white: #FFFFFF;
+    --sg-gray-minus: #C7C9CD;
+    --sg-gray: #8E929B;
+    --sg-gray-plus: #383D43;
+    --sg-yellow: #FFCA22;
+
+    /* Typography (single source of truth) */
+    --sg-font-heading: 'Clash Display', system-ui, sans-serif;
+    --sg-font-body: 'General Sans', system-ui, sans-serif;
+    --sg-font: 'General Sans', system-ui, sans-serif;
+    --sg-font-ui: 14px;
+    --sg-line-height: 1.45;
+
+    /* Surfaces */
+    --sg-surface: var(--sg-gray-plus);
+    --sg-surface-2: #424851;
+    --sg-surface-3: #4B535E;
+
+    /* Surfaces */
+    --sg-surface-bg: #383D43;
+    /* app background (grå+) */
+    --sg-surface-panel: #272B30;
+    /* cards / panels */
+    --sg-surface-panel-soft: rgba(255, 255, 255, 0.06);
+
+    /* Borders & shadows */
+    --sg-border-soft: rgba(255, 255, 255, 0.12);
+    --sg-shadow-panel: 0 8px 24px rgba(0, 0, 0, 0.35);
+
+
+    /* Text */
+    --sg-text: #F2F4F6;
+    --sg-text-muted: #C7C9CD;
+
+    /* Borders */
+    --sg-border-strong: rgba(255, 255, 255, .18);
+    --sg-border-soft: rgba(255, 255, 255, .12);
+
+    /* Accent / states */
+    --sg-accent: var(--sg-yellow);
+    --sg-readonly: #3F444B;
+    --sg-success: #5DFF64;
+    --sg-warning: orange;
+    --sg-danger: #ff0000;
+    --sg-accent: #FFCA22;
+
+    /* Accent marker for highlighted panels */
+    .sg-accent-top {
+        border-top: 2px solid var(--sg-accent);
+    }
+
+    /* Nav tokens (menu.css ska helst bara använda dessa) */
+    --sg-nav-bg:var(--sg-gray-plus);
+    --sg-nav-link:rgba(242, 244, 246, .82);
+    --sg-nav-link-hover:rgba(242, 244, 246, .96);
+    --sg-nav-link-active:var(--sg-yellow);
+}
+
+
+/* ==========================================================
+	SPLITGRID TOKENS (LIGHT) – PROFILBASERAT
+========================================================== */
+
+[data-theme="light"] {
+    /* Surfaces */
+    --sg-surface: #FFFFFF;
+    --sg-surface-2: #F5F6F8;
+    --sg-surface-3: #ECEEF2;
+
+    /* Text */
+    --sg-text: #0E0E10;
+    --sg-text-muted: rgba(14, 14, 16, .68);
+
+    /* Borders */
+    --sg-border-strong: rgba(14, 14, 16, .16);
+    --sg-border-soft: rgba(14, 14, 16, .10);
+
+    /* Nav */
+    --sg-nav-bg: #FFFFFF;
+    --sg-nav-link: rgba(14, 14, 16, .78);
+    --sg-nav-link-hover: rgba(14, 14, 16, .92);
+    --sg-nav-link-active: #0E0E10;
+}
+
+
+/* ==========================================================
+	BOOTSTRAP 5 TOKEN BINDINGS
+========================================================== */
+
+:root {
+    /* Bootstrap body */
+    --bs-body-bg: var(--sg-surface);
+    --bs-body-color: var(--sg-text);
+    --bs-border-color: var(--sg-border-strong);
+
+    /* Bootstrap typography bridges (vi styr basen via html, men håller tokens i synk) */
+    --bs-body-font-family: var(--sg-font);
+    --bs-body-font-size: 1rem;
+    --bs-body-line-height: var(--sg-line-height);
+
+    /* Links */
+    --bs-link-color: var(--sg-text);
+    --bs-link-hover-color: var(--sg-accent);
+
+    /* Background layers */
+    --bs-secondary-bg: var(--sg-surface-2);
+    --bs-tertiary-bg: var(--sg-surface-3);
+
+    /* Forms */
+    --bs-form-control-bg: transparent;
+    --bs-form-control-color: var(--sg-text);
+    --bs-form-control-border-color: var(--sg-border-strong);
+    --bs-form-control-focus-border-color: var(--sg-accent);
+
+    /* Focus */
+    --bs-focus-ring-color: color-mix(in srgb, var(--sg-accent) 28%, transparent);
+    --bs-focus-ring-width: .20rem;
+
+    /* Tables */
+    --bs-table-color: var(--sg-text);
+    --bs-table-border-color: var(--sg-border-strong);
+    --bs-secondary-color: var(--sg-text-muted);
+
+    /* Buttons */
+    --bs-btn-font-family: var(--sg-font);
+
+    /* Navbar (BS5 använder dessa i navbars) */
+    --bs-navbar-bg: var(--sg-nav-bg);
+    --bs-nav-link-color: var(--sg-nav-link);
+    --bs-nav-link-hover-color: var(--sg-nav-link-hover);
+    --bs-nav-link-active-color: var(--sg-nav-link-active);
+}
+
+[data-theme="light"] {
+    --bs-body-bg: var(--sg-surface);
+    --bs-body-color: var(--sg-text);
+    --bs-border-color: var(--sg-border-strong);
+
+    --bs-form-control-border-color: var(--sg-border-strong);
+    --bs-form-control-focus-border-color: var(--sg-accent);
+
+    --bs-table-border-color: var(--sg-border-strong);
+    --bs-secondary-color: var(--sg-text-muted);
+
+    --bs-navbar-bg: var(--sg-nav-bg);
+    --bs-nav-link-color: var(--sg-nav-link);
+    --bs-nav-link-hover-color: var(--sg-nav-link-hover);
+    --bs-nav-link-active-color: var(--sg-nav-link-active);
+}
+
+
+/* ==========================================================
+	BASE ELEMENTS (SINGLE BASE PARADIGM)
+========================================================== */
+
+html {
+    font-size: var(--sg-font-ui);
+    line-height: var(--sg-line-height);
+}
+
+body {
+    font-family: var(--sg-font);
+    font-size: 1rem;
+    line-height: inherit;
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    position: relative;
+}
+
+hr {
+    border-color: var(--sg-border-soft);
+    opacity: 1;
+}
+
+
+/* ==========================================================
+	FORMS (MINIMAL SELECTORS – BS5 NEEDS THIS)
+========================================================== */
+
+.form-control,
+.form-select,
+.input-group-text {
+    font-size: 1rem;
+    background-color: var(--bs-form-control-bg);
+    color: var(--bs-form-control-color);
+    border-color: var(--bs-form-control-border-color);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--bs-form-control-focus-border-color);
+    box-shadow: 0 0 0 var(--bs-focus-ring-width) var(--bs-focus-ring-color);
+}
+
+/* Native HTML5 date input – calendar icon theme */
+.sg-modern-theme input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(0.9);
+    cursor: pointer;
+}
+
+[data-theme="light"] .sg-modern-theme input[type="date"]::-webkit-calendar-picker-indicator,
+[data-theme="light"].sg-modern-theme input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: none;
+}
+
+select option {
+    background-color: var(--sg-surface);
+    color: var(--sg-text);
+}
+
+
+select option:checked,
+select option:selected {
+    background-color: var(--sg-accent) !important;
+    color: #000;
+}
+
+
+/* ==========================================================
+	BUTTONS
+========================================================== */
+
+.btn {
+    font-size: 1rem;
+}
+
+.btn-sm {
+    padding: .20rem .45rem;
+    font-size: .857rem;
+    border-radius: 7px;
+    letter-spacing: .01em;
+}
+
+.btn-outline-primary {
+    --bs-btn-padding-x: 1.5rem;
+    --bs-btn-color: var(--sg-accent);
+    --bs-btn-border-color: var(--sg-accent);
+    --bs-btn-hover-bg: var(--sg-accent);
+    --bs-btn-hover-color: #000;
+    --bs-btn-hover-border-color: var(--sg-accent);
+}
+
+
+/* ==========================================================
+	TABLES (FORCE INHERIT FROM BASE)
+========================================================== */
+
+.table {
+    font-size: 1rem;
+    color: var(--bs-table-color);
+}
+
+.table> :not(caption)>*>* {
+    border-color: var(--bs-table-border-color);
+}
+
+.table td,
+.table th {
+    font-size: inherit;
+    color: var(--sg-text);
+}
+
+.table .text-muted,
+.table small {
+    color: var(--sg-text-muted) !important;
+}
+
+.table a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.table a:hover {
+    color: var(--sg-accent);
+    text-decoration: underline;
+}
+
+
+/* ==========================================================
+	PAGINATION
+========================================================== */
+
+.page-link {
+    font-size: 1rem;
+    color: var(--sg-text);
+    background-color: transparent;
+    border-color: var(--sg-border-strong);
+}
+
+.page-link:hover {
+    color: #000;
+    background-color: var(--sg-accent);
+    border-color: var(--sg-accent);
+}
+
+.page-item.active .page-link {
+    color: #000;
+    background-color: var(--sg-accent);
+    border-color: var(--sg-accent);
+}
+
+
+/* ==========================================================
+	KYC / ADMIN-SPECIFIKT
+========================================================== */
+
+.view-kyc-btn.btn {
+    --bs-btn-color: var(--sg-text);
+    --bs-btn-border-color: var(--sg-border-strong);
+    --bs-btn-hover-bg: color-mix(in srgb, var(--sg-text) 10%, transparent);
+    --bs-btn-hover-color: var(--sg-text);
+    --bs-btn-hover-border-color: color-mix(in srgb, var(--sg-text) 20%, var(--sg-border-strong));
+}
+
+
+/* ==========================================================
+	GRAIN OVERLAY (CSS-only)
+========================================================== */
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: .08;
+    background-image:
+        repeating-linear-gradient(0deg,
+            rgba(255, 255, 255, .025) 0,
+            rgba(255, 255, 255, .025) 1px,
+            transparent 1px,
+            transparent 2px),
+        repeating-linear-gradient(90deg,
+            rgba(0, 0, 0, .02) 0,
+            rgba(0, 0, 0, .02) 1px,
+            transparent 1px,
+            transparent 3px);
+    mix-blend-mode: overlay;
+}
+
+[data-theme="light"] body::before {
+    opacity: .035;
+    mix-blend-mode: soft-light;
+}
+
+/* Third-party: Google Visualization (scoped) */
+.sg-gviz .google-visualization-table-table,
+.sg-gviz .google-visualization-table-td,
+.sg-gviz .google-visualization-table-th,
+.sg-gviz .google-visualization-table-tr {
+    background-color: transparent !important;
+    color: var(--sg-text);
+}
+
+.sg-gviz .google-visualization-table-th {
+    background-color: var(--sg-surface-2) !important;
+    border-bottom: 1px solid var(--sg-border-strong) !important;
+    background-image: none !important;
+}
+
+.sg-gviz .google-visualization-table-td {
+    border-bottom: 1px solid var(--sg-border-soft) !important;
+}
+
+.sg-gviz .google-visualization-table-tr-over td {
+    background-color: color-mix(in srgb, var(--sg-text) 6%, transparent) !important;
+}
+
+/* External invoice Google Visualization */
+.ex-inv-page #table_div table {
+    table-layout: fixed !important;
+}
+
+.ex-inv-page #table_div .sg-hcell,
+.ex-inv-page #table_div .sg-table-cell {
+    padding: 1rem !important;
+    color: var(--sg-text) !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--sg-border-soft) !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    font-weight: 700;
+    font-family: var(--sg-font);
+}
+
+.ex-inv-page #table_div .sg-hcell {
+    color: var(--sg-text-muted) !important;
+    border-bottom: 2.5px solid var(--sg-border-soft) !important;
+}
+
+.ex-inv-page #table_div table th:nth-child(4),
+.ex-inv-page #table_div table td:nth-child(4) {
+    width: 9rem !important;
+    text-align: left;
+}
+
+.ex-inv-page #string_filter_div input {
+    background-color: var(--bs-form-control-bg) !important;
+    color: var(--bs-form-control-color) !important;
+    border: 1px solid var(--bs-form-control-border-color) !important;
+    border-radius: 0.5rem !important;
+    padding: .375rem .75rem !important;
+}
+
+.ex-inv-page #string_filter_div label {
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+.sg-searchbar form {
+    flex-wrap: wrap;
+}
+
+.sg-searchbar .sg-search-input {
+    flex: 0 1 260px;
+    max-width: 260px;
+}
+
+.sg-searchbar .sg-search-select {
+    flex: 0 1 200px;
+    max-width: 200px;
+}
+
+.sg-searchbar .btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+.form-control::placeholder {
+    color: var(--sg-text-muted);
+    opacity: .9;
+}
+
+.sg-thead {
+    border-bottom: 1px solid var(--sg-accent);
+}
+
+.sg-thead th {
+    border-bottom: 0;
+}
+
+.sg-thead {
+    border-top: 1px solid var(--sg-accent);
+    border-bottom: 1px solid var(--sg-accent);
+}
+
+.sg-thead th {
+    border-bottom: 0;
+}
+
+/* ==========================================================
+	SELECT A/B TEST – lägg sist i splitgrid-style.css
+	Sätt på <html data-sg-ab="A"> eller "B" för att växla
+========================================================== */
+
+/* Bas: gör native select tydlig + stabil i båda teman */
+html[data-sg-ab] .form-select,
+html[data-sg-ab] select {
+    min-height: calc(2.25rem + 2px);
+    border-width: 2px !important;
+}
+
+/* ==========================================================
+	AB = A  (SUPERMARKANT)
+========================================================== */
+
+html[data-sg-ab="A"] .form-select,
+html[data-sg-ab="A"] select {
+    outline: 6px solid #ff00ff !important;
+    outline-offset: 2px !important;
+    background-color: #001bff !important;
+    color: #ffffff !important;
+}
+
+html[data-sg-ab="A"] .form-select option,
+html[data-sg-ab="A"] select option {
+    background: #001bff !important;
+    color: #ffffff !important;
+}
+
+html[data-sg-ab="A"] .form-select option:checked,
+html[data-sg-ab="A"] .form-select option:selected,
+html[data-sg-ab="A"] select option:checked,
+html[data-sg-ab="A"] select option:selected {
+    background: #00ff00 !important;
+    color: #000000 !important;
+}
+
+html[data-sg-ab="A"] .form-select:focus,
+html[data-sg-ab="A"] select:focus {
+    box-shadow: 0 0 0 .4rem rgba(255, 0, 255, .55) !important;
+    border-color: #ff00ff !important;
+}
+
+/* ==========================================================
+	AB = B  (MARKANT MEN TOKEN-BASERAT)
+========================================================== */
+
+html[data-sg-ab="B"] .form-select,
+html[data-sg-ab="B"] select {
+    outline: 3px solid var(--sg-accent) !important;
+    outline-offset: 2px !important;
+    background-color: var(--sg-surface-2) !important;
+    color: var(--sg-text) !important;
+    border-color: var(--sg-accent) !important;
+}
+
+html[data-sg-ab="B"] .form-select option,
+html[data-sg-ab="B"] select option {
+    background-color: var(--sg-surface) !important;
+    color: var(--sg-text) !important;
+}
+
+html[data-sg-ab="B"] .form-select option:checked,
+html[data-sg-ab="B"] .form-select option:selected,
+html[data-sg-ab="B"] select option:checked,
+html[data-sg-ab="B"] select option:selected {
+    background-color: var(--sg-accent) !important;
+    color: #000 !important;
+}
+
+/* ==========================================================
+	GLOBAL SELECT: tydlig selected i båda teman
+	Lägg sist i splitgrid-style.css
+========================================================== */
+
+select {
+    background-color: var(--sg-surface);
+    color: var(--sg-text);
+    border-color: var(--sg-border-strong);
+}
+
+select:focus {
+    border-color: var(--sg-accent);
+    box-shadow: 0 0 0 var(--bs-focus-ring-width) var(--bs-focus-ring-color);
+}
+
+select option {
+    background-color: var(--sg-surface);
+    color: var(--sg-text);
+}
+
+select option:checked,
+select option:selected {
+    background-color: var(--sg-accent);
+    color: #000;
+}
+
+/* Multiple-select: extra tydlig radmarkering */
+select[multiple] option:checked,
+select[multiple] option:selected {
+    font-weight: 700;
+}
+
+/* SPLITGRID PAGE LAYOUT & CONTAINERS (Controls padding, cards, grids matching the UI ) this are the suggested class */
+
+/* --- 1. Page Wrapping & Margin --- */
+.sg-page-container {
+    padding: 2rem 2rem;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+/* --- 2. Standardized Titles --- */
+.sg-page-title {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+}
+
+.sg-page-subtitle {
+    color: var(--bs-secondary-color);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.sg-section-title {
+    font-weight: 700;
+    margin-bottom: 0;
+    font-size: 1.25rem;
+}
+
+/* --- 3. Global Cards / Panels --- */
+.sg-card {
+    border: none !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--sg-surface-panel);
+}
+
+/* --- 4. Specific Utilities for Integration Templates --- */
+.sg-btn-primary {
+    padding: 0.5rem 1.5rem;
+    border-radius: 50rem;
+    font-weight: 600;
+}
+
+.sg-input-sm {
+    max-width: 80px;
+}
+
+.sg-input-md {
+    max-width: 100px;
+}
+
+.sg-cursor-pointer {
+    cursor: pointer;
+}
+
+.sg-scroll-list {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+/* Better spacing for stacked form rows */
+.row {
+    margin-bottom: 0.75rem;
+}
+
+/* Wrap wide metadata tables horizontally */
+table.sg-table {
+    width: 100%;
+}
+
+table.sg-table th,
+table.sg-table td {
+    padding: 0.75rem 1rem !important;
+    vertical-align: middle;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+}
+
+/* --- 5. Premium Primary Button Override --- */
+.btn-primary {
+    --bs-btn-bg: #2169f3;
+    --bs-btn-border-color: #2169f3;
+    --bs-btn-hover-bg: #1a54c4;
+    --bs-btn-hover-border-color: #1a54c4;
+    --bs-btn-active-bg: #174aa8;
+    --bs-btn-active-border-color: #174aa8;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 4px 12px rgba(33, 105, 243, 0.3);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================
+	Modern THEME (SCOPED MODERN TRANSFORMATION)
+========================================================== */
+
+.sg-modern-theme {
+    /* Industrial Palette */
+    --sg-deep-black: #0E0E10;
+    --sg-ink-black: #1A1C1E;
+    --sg-steel-gray: #33363A;
+    --sg-vibrant-yellow: #FFCA22;
+    --sg-performance-blue: #2169f3;
+
+    /* Layout Tokens (Dark Default) */
+    --sg-surface-bg: #272b30;
+    --sg-surface-panel: #272b30;
+    --sg-text-main: #E4E6EB;
+    --sg-text-muted: #A0A4A8;
+    --sg-border-subtle: rgba(255, 255, 255, 0.08);
+    --sg-border-hard: rgba(255, 255, 255, 0.15);
+
+    /* Functional Overrides */
+    --sg-accent: var(--sg-vibrant-yellow);
+    --sg-primary-action: var(--sg-performance-blue);
+
+    /* Dynamic Bootstrap Integrations */
+    --bs-body-bg: var(--sg-surface-bg);
+    --bs-body-color: var(--sg-text-main);
+    --bs-border-color: var(--sg-border-subtle);
+}
+
+[data-theme="light"] .sg-modern-theme,
+[data-theme="light"].sg-modern-theme {
+    /* Layout Tokens (Light Mode) */
+    --sg-surface-bg: #F8F9FA;
+    --sg-surface-panel: #FFFFFF;
+    --sg-text-main: #1A1C1E;
+    --sg-text-muted: #6C757D;
+    --sg-border-subtle: rgba(0, 0, 0, 0.06);
+    --sg-border-hard: rgba(0, 0, 0, 0.12);
+}
+
+/* Base Component Transformer (Scoped) */
+.sg-modern-theme .sg-card {
+    background-color: var(--sg-surface-panel) !important;
+    border: 1px solid var(--sg-border-subtle) !important;
+    border-radius: 0.85rem !important;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sg-modern-theme .sg-card-header {
+    border-bottom: 1px solid var(--sg-border-subtle);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.sg-modern-theme .sg-label-industrial {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--sg-text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.sg-modern-theme .sg-table-industrial {
+    width: 100%;
+}
+
+.sg-modern-theme .sg-table-industrial th {
+    background: transparent !important;
+    color: var(--sg-text-muted) !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    border-bottom: 2px solid var(--sg-border-hard) !important;
+    padding: 0.75rem 1rem !important;
+}
+
+.sg-modern-theme .sg-table-industrial td {
+    padding: 1rem !important;
+    border-bottom: 1px solid var(--sg-border-subtle) !important;
+    vertical-align: middle !important;
+    color: var(--sg-text-main) !important;
+}
+
+.sg-modern-theme .form-control,
+.sg-modern-theme .form-select {
+    background-color: var(--sg-surface-panel);
+    border: 1px solid var(--sg-border-subtle);
+    color: var(--sg-text-main);
+    border-radius: 0.5rem;
+}
+
